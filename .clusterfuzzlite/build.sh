@@ -37,6 +37,13 @@ LIB_SRCS=(
     "${PROJ}/src/builder.cpp"
     "${PROJ}/src/env.cpp"
     "${PROJ}/src/samples.cpp"
+    "${PROJ}/src/query_parser.cpp"
+    "${PROJ}/src/query_eval.cpp"
+    "${PROJ}/src/wire.cpp"
+    "${PROJ}/src/compactor.cpp"
+    "${PROJ}/src/diff.cpp"
+    "${PROJ}/src/field_index.cpp"
+    "${PROJ}/src/schema_registry.cpp"
 )
 
 # Compile each library source to an object file.
@@ -76,3 +83,10 @@ if [ -d "${PROJ}/fuzz/corpus/journal_fuzzer" ]; then
     zip -j "${OUT}/journal_fuzzer_seed_corpus.zip" \
         "${PROJ}/fuzz/corpus/journal_fuzzer/"*
 fi
+
+# Build query_fuzzer.
+$CXX $CXXFLAGS -std=c++17 $INCLUDES \
+    "${PROJ}/fuzz/query_fuzzer.cc" \
+    "${OBJS[@]}" \
+    $LIB_FUZZING_ENGINE \
+    -o "${OUT}/query_fuzzer"

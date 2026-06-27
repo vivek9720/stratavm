@@ -41,6 +41,9 @@ enum class Code : std::uint16_t {
   InvariantViolation,
   LimitExceeded,     // a configured decode limit was hit
   Internal,
+  BadChecksum,       // CRC or integrity check failed
+  NotFound,          // a named entity was not found in a registry/index
+  AlreadyExists,     // attempted to register a duplicate entry
 };
 
 // Returns a stable, lowercase-ish token for a code. Used by the CLI and tests.

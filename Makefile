@@ -27,7 +27,14 @@ LIB_SRCS = \
     src/loader.cpp \
     src/builder.cpp \
     src/env.cpp \
-    src/samples.cpp
+    src/samples.cpp \
+    src/query_parser.cpp \
+    src/query_eval.cpp \
+    src/wire.cpp \
+    src/compactor.cpp \
+    src/diff.cpp \
+    src/field_index.cpp \
+    src/schema_registry.cpp
 
 LIB_OBJS = $(patsubst src/%.cpp,$(BUILD_DIR)/%.o,$(LIB_SRCS))
 
@@ -36,7 +43,13 @@ TEST_SRCS = \
     tests/test_atom_schema.cpp \
     tests/test_loader.cpp \
     tests/test_replay.cpp \
-    tests/test_builder.cpp
+    tests/test_builder.cpp \
+    tests/test_query.cpp \
+    tests/test_wire.cpp \
+    tests/test_compactor.cpp \
+    tests/test_diff.cpp \
+    tests/test_field_index.cpp \
+    tests/test_schema_registry.cpp
 
 TEST_BINS = $(patsubst tests/%.cpp,$(BUILD_DIR)/%,$(TEST_SRCS))
 

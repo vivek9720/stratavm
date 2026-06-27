@@ -29,6 +29,9 @@ const char* code_name(Code c) {
     case Code::InvariantViolation: return "invariant_violation";
     case Code::LimitExceeded: return "limit_exceeded";
     case Code::Internal: return "internal";
+    case Code::BadChecksum: return "bad_checksum";
+    case Code::NotFound: return "not_found";
+    case Code::AlreadyExists: return "already_exists";
   }
   return "unknown";
 }

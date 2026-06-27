@@ -1,0 +1,6 @@
+language: c++
+primary_contact: "owner@example.com"
+
+fuzz_targets:
+  - container_fuzzer
+  - journal_fuzzer
